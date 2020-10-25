@@ -1,0 +1,65 @@
+require:
+  - solidus_dev_support/rubocop
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - sandbox/**/*
+    - spec/dummy/**/*
+    - vendor/bundle/**/*
+
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+# We use this extensively, the alternatives are not viable or desirable.
+RSpec/AnyInstance:
+  Enabled: false
+
+# Feature specs are not describing any class or module.
+RSpec/DescribeClass:
+  Exclude:
+    - spec/features/**/*
+
+# No need to make the code more complex for no real gain.
+RSpec/MessageSpies:
+  Enabled: false
+
+# Let's consider legitimate to have multiple expectations within an example.
+RSpec/MultipleExpectations:
+  Enabled: false
+
+# Allow to use subject as is, no big deal.
+RSpec/NamedSubject:
+  Enabled: false
+
+# Let's set this to some really exagerate value.
+RSpec/NestedGroups:
+  Max: 8
+
+RSpec/VerifiedDoubles:
+  # Sometimes you really need an "anything" double
+  IgnoreSymbolicNames: true
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - spec/**/*
+    - db/migrate/**/*
+    - bin/**/*
+
+Security/YAMLLoad:
+  Exclude:
+    - spec/**/*
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - spec/jobs/solidus_paypal_commerce_platform/webhook_job_spec.rb
+    - spec/models/solidus_paypal_commerce_platform/payment_method_spec.rb
+    - spec/models/solidus_paypal_commerce_platform/payment_source_spec.rb
+
+Rails/Inquiry:
+  Enabled: true
+  Exclude:
+    - spec/lib/solidus_paypal_commerce_platform/configuration_spec.rb

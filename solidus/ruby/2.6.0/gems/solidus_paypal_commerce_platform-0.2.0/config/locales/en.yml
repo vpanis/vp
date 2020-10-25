@@ -1,0 +1,37 @@
+en:
+  spree:
+    hints:
+      solidus_paypal_commerce_platform/payment_method:
+        available_to_users: You must verify that your email is confirmed with PayPal before users will be able to check out with this payment method.
+    payment_source: source
+  activerecord:
+    attributes:
+      solidus_paypal_commerce_platform/payment_source:
+        paypal_order_id: "PayPal order"
+        payment_method_id: "payment method"
+    models:
+      solidus_paypal_commerce_platform/payment_source: PayPal Payment Source
+      solidus_paypal_commerce_platform/payment_method: PayPal Commerce Platform
+  hello: Hello world
+  sign_up_for_paypal: Setup PayPal Commerce Platform
+  start_paying_with_paypal: Start paying with Paypal Commerce Platform
+  paypal_capture_id: PayPal Capture ID
+  paypal_debug_id: PayPal Debug ID
+  paypal_email: PayPal Email
+  payment_email: "Payment Email: %{email}"
+  virtual_terminal_notice_html: Backend Credit Card payments can only be accepted through PayPal via the <a href="https://www.paypal.com/merchantapps/appcenter/acceptpayments/virtualterminal">PayPal Virtual Terminal</a>.
+  solidus_paypal_commerce_platform:
+    responses:
+      pay_pal_checkout_sdk/orders/orders_capture_request:
+        success: "Payment captured"
+        failure: "Your payment was declined - please try again using a different payment method."
+      pay_pal_checkout_sdk/orders/orders_authorize_request:
+        success: "Payment authorized"
+        failure: "Your payment was declined - please try again using a different payment method."
+      pay_pal_checkout_sdk/payments/authorizations_capture_request:
+        success: "Authorization captured"
+      pay_pal_checkout_sdk/payments/captures_refund_request:
+        success: "Payment refunded for %{amount}"
+      pay_pal_checkout_sdk/payments/authorizations_void_request:
+        success: "Payment voided"
+

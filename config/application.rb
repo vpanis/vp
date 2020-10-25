@@ -8,6 +8,14 @@ Bundler.require(*Rails.groups)
 
 module Vp
   class Application < Rails::Application
+    # Load application's model / class decorators
+    initializer 'spree.decorators' do |app|
+      config.to_prepare do
+        Dir.glob(Rails.root.join('app/**/*_decorator*.rb')) do |path|
+          require_dependency(path)
+        end
+      end
+    end
     config.generators do |generate|
       generate.assets false
       generate.helper false
